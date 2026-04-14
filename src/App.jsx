@@ -22,7 +22,7 @@ const HomePages = () => {
   }, []);
 
   return (
-    <div className="w-10/12 mx-auto py-6">
+    <div className="w-10/12 mx-auto py-10">
       <div className="space-y-3 max-w-2xl mx-auto text-center">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-700">
           Friends to Keep close in Your life

@@ -2,7 +2,7 @@ import React from 'react';
 
 const StatsPages = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <h1>Stata</h1>
     </div>
   );

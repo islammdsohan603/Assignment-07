@@ -2,7 +2,7 @@ import React from 'react';
 
 const TimeLinePage = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <h1>Time</h1>
     </div>
   );

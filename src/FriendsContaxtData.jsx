@@ -1,9 +1,12 @@
 import { createContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const FriendsContext = createContext();
 
 const FriendsProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [clickdId, setClickId] = useState([]);
+  const [collId, setCollId] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -11,24 +14,35 @@ const FriendsProvider = ({ children }) => {
       const result = await res.json();
       setData(result);
     };
-
     fetchData();
   }, []);
 
   const handleCardData = id => {
-    console.log(id);
-
-    const isExistCard = data.find(friend => friend.id === id);
-
-    if (isExistCard) {
-      alert('data is alrady ');
+    if (clickdId.includes(id)) {
+      toast.error('Already Clicked!');
+      return false;
     } else {
-      alert('succusfull');
+      toast.success('Success!');
+      setClickId([...clickdId, id]);
+      return true;
+    }
+  };
+
+  const handleCall = id => {
+    if (collId.includes(id)) {
+      toast.error('Already Clicked!');
+      return false;
+    } else {
+      toast.success('SuccessFully');
+      setCollId([...clickdId, id]);
+      return true;
     }
   };
 
   return (
-    <FriendsContext.Provider value={{ data, handleCardData }}>
+    <FriendsContext.Provider
+      value={{ data, handleCardData, handleCall, collId }}
+    >
       {children}
     </FriendsContext.Provider>
   );

@@ -8,7 +8,7 @@ import TimeLine from './page/timeline/TimeLine.jsx';
 import Stats from './page/stats/Stats.jsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import FriendsProvider from './FriendsContaxtData.jsx';
+
 import FrindesDetails from './page/friends/FrindesDetails.jsx';
 
 const router = createBrowserRouter([
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <App /> },
       { path: 'timeline', element: <TimeLine /> },
-      { path: 'FrindesDetails/:id', element: <FrindesDetails /> },
+      { path: 'friends/:id', element: <FrindesDetails /> },
       { path: 'stats', element: <Stats /> },
     ],
   },
@@ -26,8 +26,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <FriendsProvider>
-      <RouterProvider router={router} />
-    </FriendsProvider>
+    <RouterProvider router={router} />
   </StrictMode>,
 );

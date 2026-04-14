@@ -1,29 +1,18 @@
 import { useContext } from 'react';
 import { GridLoader } from 'react-spinners';
 import { FriendsContext } from './FriendsContaxtData';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
-// const totalFriends = [
-//   { id: 1, title: 'Total Friends', count: 10 },
-//   { id: 2, title: 'On Track', count: 3 },
-//   { id: 3, title: 'Need Attention', count: 6 },
-// ];
+const totalFriends = [
+  { id: 1, title: 'Total Friends', count: 10 },
+  { id: 2, title: 'On Track', count: 3 },
+  { id: 3, title: 'Need Attention', count: 6 },
+];
 
 const HomePages = () => {
-  const { data } = useContext(FriendsContext);
   const navigate = useNavigate();
 
-  const totalFriends = data.length;
-  const onTrack = data.filter(f => f.status === 'on track').length;
-  const needAttention = data.filter(
-    f => f.status === 'overdue' || f.status === 'almost due',
-  ).length;
-
-  const stats = [
-    { id: 1, title: 'Total Friends', count: totalFriends },
-    { id: 2, title: 'On Track', count: onTrack },
-    { id: 3, title: 'Need Attention', count: needAttention },
-  ];
+  const { data, handleCardData } = useContext(FriendsContext);
 
   return (
     <div className="w-10/12 mx-auto py-10">
@@ -43,13 +32,13 @@ const HomePages = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-5 pb-8 border-b-2 border-neutral-300">
-        {stats.map(stat => (
+        {totalFriends.map(person => (
           <div
-            key={stat.id}
-            className="bg-base-100 p-6 rounded-2xl shadow-md flex flex-col items-center justify-center"
+            key={person.id}
+            className="text-center flex flex-col items-center justify-center p-4 rounded-2xl shadow-2xs"
           >
-            <h1 className="text-3xl font-bold">{stat.count}</h1>
-            <p className="text-neutral-600 font-semibold">{stat.title}</p>
+            <h1 className="text-3xl font-bold"> {person.count} </h1>
+            <p className="font-semibold text-neutral-600"> {person.title} </p>
           </div>
         ))}
       </div>
@@ -65,7 +54,13 @@ const HomePages = () => {
           data.map(friends => (
             <div
               key={friends.id}
-              onClick={() => navigate(`/FrindesDetails/${friends.id}`)}
+              onClick={() => {
+                const canNavigate = handleCardData(friends.id);
+
+                if (canNavigate) {
+                  navigate(`/friends/${friends.id}`);
+                }
+              }}
               className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center cursor-pointer text-center space-y-3 hover:shadow-xl transition"
             >
               {/* Image */}

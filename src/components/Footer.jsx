@@ -5,7 +5,7 @@ const FooterPage = () => {
   return (
     <div className="bg-green-900 py-8">
       <div className="w-10/12 mx-auto">
-        <div className="text-center">
+        <div className="text-center space-y-4">
           <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white">
             KeenKeeper
           </h1>

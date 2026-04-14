@@ -19,7 +19,12 @@ const FriendsProvider = ({ children }) => {
 
   const handleCardData = id => {
     if (clickdId.includes(id)) {
-      toast.error('Already Clicked!');
+      (new Date().toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      }),
+        toast.error('Already Clicked!'));
       return false;
     } else {
       toast.success('Success!');
@@ -28,15 +33,21 @@ const FriendsProvider = ({ children }) => {
     }
   };
 
-  const handleCall = id => {
-    if (collId.includes(id)) {
-      toast.error('Already Clicked!');
-      return false;
-    } else {
-      toast.success('SuccessFully');
-      setCollId([...clickdId, id]);
-      return true;
-    }
+  const handleCall = (item, friendName, friendPicture) => {
+    const newInteraction = {
+      id: Date.now(),
+      type: item.title,
+      description: item.desc,
+      name: friendName,
+      picture: friendPicture,
+      date: new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      }),
+    };
+    setCollId(prev => [newInteraction, ...prev]);
+    toast.success('Successfully!');
   };
 
   return (

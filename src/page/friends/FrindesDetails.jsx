@@ -12,9 +12,19 @@ import { FaBoxArchive } from 'react-icons/fa6';
 import { MdDelete } from 'react-icons/md';
 
 const girdItem = [
-  { id: 1, title: 'Call', icon: <IoCall /> },
-  { id: 2, title: 'Text', icon: <IoIosText /> },
-  { id: 3, title: 'Video', icon: <IoMdVideocam /> },
+  { id: 1, title: 'Call', desc: 'Had a quick call', icon: <IoCall /> },
+  {
+    id: 2,
+    title: 'Text',
+    desc: 'Asked for career advice',
+    icon: <IoIosText />,
+  },
+  {
+    id: 3,
+    title: 'Video',
+    desc: 'Had a video meeting',
+    icon: <IoMdVideocam />,
+  },
 ];
 
 const buttonsItem = [
@@ -151,7 +161,7 @@ const FrindesDetails = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {girdItem.map(item => (
                   <div
-                    onClick={() => handleCall(item.id)}
+                    onClick={() => handleCall(item, singleFriend.name)}
                     key={item.id}
                     className="bg-base-300 p-4 rounded-2xl cursor-pointer flex flex-col items-center justify-center"
                   >

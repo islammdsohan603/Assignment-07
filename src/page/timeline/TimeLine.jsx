@@ -14,27 +14,43 @@ const getIcon = type => {
 const TimeLine = () => {
   const { collId } = useContext(FriendsContext);
   const [filter, setFilter] = useState('All');
+  const [search, setSearch] = useState('');
 
-  const filteredData =
-    filter === 'All' ? collId : collId.filter(item => item.type === filter);
+  const filteredData = collId
+    .filter(item => (filter === 'All' ? true : item.type === filter))
+    .filter(
+      item =>
+        item.name?.toLowerCase().includes(search.toLowerCase()) ||
+        item.description?.toLowerCase().includes(search.toLowerCase()),
+    );
 
   return (
     <div className="min-h-screen bg-base-200 py-10">
       <div className="w-10/12 mx-auto">
         <h1 className="text-3xl font-bold mb-6">Timeline</h1>
 
-        {/* Filter */}
-        <select
-          className="select select-bordered mb-6 w-48"
-          value={filter}
-          onChange={e => setFilter(e.target.value)}
-        >
-          <option value="All">Filter timeline</option>
-          <option value="Call">Call</option>
-          <option value="Text">Text</option>
-          <option value="Video">Video</option>
-        </select>
+        <div className="flex flex-col md:flex-row md:items-center gap-6 mb-6">
+          {/* Filter */}
+          <select
+            className="select select-bordered mb-6 w-48"
+            value={filter}
+            onChange={e => setFilter(e.target.value)}
+          >
+            <option value="All">Filter timeline</option>
+            <option value="Call">Call</option>
+            <option value="Text">Text</option>
+            <option value="Video">Video</option>
+          </select>
+          {/* Search Bar */}
 
+          <input
+            type="text"
+            value={search}
+            placeholder="Search"
+            onChange={e => setSearch(e.target.value)}
+            className="input input-bordered w-full md:w-80 mb-6"
+          />
+        </div>
         {/* List */}
         <div className="space-y-2">
           {filteredData.length === 0 ? (

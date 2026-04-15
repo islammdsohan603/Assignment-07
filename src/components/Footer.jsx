@@ -6,6 +6,7 @@ const FooterPage = () => {
     <div className="bg-green-900 py-8">
       <div className="w-10/12 mx-auto">
         <div className="text-center space-y-4">
+          {/* Text */}
           <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white">
             KeenKeeper
           </h1>
@@ -15,7 +16,7 @@ const FooterPage = () => {
             nurture the <br />
             relationships that matter most.
           </p>
-
+          {/* Social Link */}
           <div className="flex flex-col items-center justify-center space-y-2.5 ">
             <h1 className="text-2xl font-bold text-white">Social Links</h1>
 

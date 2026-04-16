@@ -1,18 +1,86 @@
-# React + Vite
+# 💚 KeenKeeper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern friendship management and interaction tracking web application built
+with Next.js.  
+KeenKeeper helps users keep track of meaningful relationships, log interactions,
+and visualize friendship activity.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Project Description
 
-## React Compiler
+KeenKeeper is a personal relationship tracking system where users can:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Add and manage friends
+- Track days since last contact
+- Log interactions like calls, texts, and video meetings
+- View relationship analytics through charts and timeline history
 
-Note: This will impact Vite dev & build performances.
+This project is built as a portfolio-level full-stack UI application using
+modern React and Next.js features.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- ⚛️ React.js
+- 🎨 Tailwind CSS
+- 📊 Recharts (Data Visualization)
+- 🔔 React Toastify (Notifications)
+- 🧠 Context API (State Management)
+- 📦 JavaScript (ES6+)
+
+---
+
+## ✨ Key Features
+
+### 1. 👥 Friend Management System
+
+Users can view a list of friends, track their details, and manage relationships
+easily.
+
+---
+
+### 2. 📅 Interaction Timeline
+
+Logs all interactions like calls, texts, and video meetings with timestamp
+history for better tracking.
+
+---
+
+### 3. 📊 Analytics Dashboard
+
+Visual representation of interaction types using charts (Pie Chart) to analyze
+communication patterns.
+
+---
+
+## 📌 Additional Features
+
+- Responsive UI (Mobile + Desktop)
+- Modern dashboard design
+- Toast notifications for user actions
+- Dynamic routing with Next.js
+- Clean component-based architecture
+
+---
+
+## 📷 Project Preview
+
+## Home Page
+
+![alt text](<Screenshot 2026-04-16 155016.png>)
+
+## All Friends List
+
+![alt text](<Screenshot 2026-04-16 155033.png>)
+
+## Single Friends Lisl
+
+![alt text](<Screenshot 2026-04-16 155051.png>)
+
+## Friendship analytics deteails
+
+## ![alt text](<Screenshot 2026-04-16 155112.png>)
+
+## Live links : https://nextjs-for-frist-projects.netlify.app/
